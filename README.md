@@ -31,20 +31,18 @@ Authenticate before fetching
 
 ```python
 from meg import Meg
-
-"""
-Your code to authenticate here
-example:
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-driver = webdriver.Firefox()
-driver.find_element_by_id('username').send_keys('your_username')
-driver.find_element_by_id('password').send_keys('your_password')
-driver.find_element_by_id('remember_me').click()
-driver.find_element_by_id('login_button').click()
-driver.implicitly_wait(5)
-"""
+# Your code to authenticate here, example:
+ff = webdriver.Firefox()
+ff.find_element_by_id('username').send_keys('your_username')
+ff.find_element_by_id('password').send_keys('your_password')
+ff.find_element_by_id('remember_me').click()
+ff.find_element_by_id('login_button').click()
+ff.implicitly_wait(5)
 
-browser = Meg(wait=5, init_browser=False)
+# run the instance with custom browser
+browser = Meg(wait=5, init_browser=False, driver="ff")
 browser.fetch_sources("urls.txt", output_dir="output")
+```
