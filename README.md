@@ -7,10 +7,22 @@ Because Tomnom's Meg can't presently collect sources with any JavaScript updates
 
 ### Usage
 
+Fetch single url
+
 ```python
 from meg import Meg
 
-browser = Meg("https://example.com/", wait=5)
-dom_source = browser.load_source(output="source.html")
+url = "http://example.org"
+browser = Meg(wait=5)
+dom_source = browser.fetch_source(url, output="source.html")
 print(dom_source)
+```
+
+Fetch multiple urls
+
+```python
+from meg import Meg
+
+browser = Meg(wait=5)
+browser.fetch_sources("urls.txt", output_dir="output")
 ```
