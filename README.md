@@ -26,3 +26,15 @@ from meg import Meg
 browser = Meg(wait=5)
 browser.fetch_sources("urls.txt", output_dir="output")
 ```
+
+authenticate before fetching
+
+```python
+from meg import Meg
+
+"""
+Your code to authenticate here
+"""
+
+browser = Meg(wait=5, init_browser=False)
+browser.fetch_sources("urls.txt", output_dir="output")
