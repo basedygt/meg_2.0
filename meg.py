@@ -1,5 +1,8 @@
 import sys
 import time
+import os
+import re
+
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
