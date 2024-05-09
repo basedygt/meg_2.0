@@ -27,13 +27,23 @@ browser = Meg(wait=5)
 browser.fetch_sources("urls.txt", output_dir="output")
 ```
 
-authenticate before fetching
+Authenticate before fetching
 
 ```python
 from meg import Meg
 
 """
 Your code to authenticate here
+example:
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+driver = webdriver.Firefox()
+driver.find_element_by_id('username').send_keys('your_username')
+driver.find_element_by_id('password').send_keys('your_password')
+driver.find_element_by_id('remember_me').click()
+driver.find_element_by_id('login_button').click()
+driver.implicitly_wait(5)
 """
 
 browser = Meg(wait=5, init_browser=False)
