@@ -19,7 +19,7 @@ class Meg:
         options.accept_insecure_certs = True
         return webdriver.Firefox(options=options)
 
-    def fetch_source(self, url, output=None, imported=False):
+    def fetch_source(self, url, output=False, imported=False):
         try:
             self.driver.get(url)
             time.sleep(self.wait)
@@ -40,7 +40,7 @@ class Meg:
             if not imported:
                 self.driver.quit()
 
-    def fetch_sources(self, hosts_file, output=None):
+    def fetch_sources(self, hosts_file, output_dir):
         try:
             with open(hosts_file, "r") as f:
                 host_lst = f.read().split("\n")
@@ -49,8 +49,16 @@ class Meg:
             sys.exit(1)
 
         try:
+            if not os.path.exists(output_dir):
+                os.makedirs(output_dir)
+
             for host in host_lst:
-                self.fetch_source(host, output, imported=True)
+                pretty_html = self.fetch_source(host, imported=True)
+                if pretty_html:
+                    filename = self._url_to_filename(host)
+                    output_path = os.path.join(output_dir, filename)
+                    with open(output_path, "w") as f:
+                        f.write(pretty_html)
 
         except Exception as e:
             print(str(e))
@@ -58,3 +66,8 @@ class Meg:
         
         finally:
             self.driver.quit()
+
+    def _url_to_filename(self, url):
+        # Remove illegal characters from the URL and replace them with underscores
+        filename = re.sub(r'[<>:"/\\|?*]', '_', url)
+        return filename
