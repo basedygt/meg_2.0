@@ -3,7 +3,7 @@ Fetch the HTML sources loaded in the DOM using a live browser
 
 ### Description
 
-Because Tomnom's Meg can't presently collect sources with any JavaScript updates, it may miss a lot of crucial information. To fix that, I built a little script [meg_2.0](https://github.com/basedygt/meg_2.0).
+Because Tomnom's Meg can't presently collect sources with any JavaScript updates, it may miss a lot of crucial information. To fix that, I built a little script [meg_2.0](https://github.com/basedygt/meg_2.0/blob/main/meg.py).
 
 ### Usage
 
