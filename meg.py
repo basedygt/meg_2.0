@@ -6,12 +6,12 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.firefox.options import Options
 
 class Meg:
-    def __init__(self, wait=5, init_browser=True):
+    def __init__(self, wait=5, init_browser=True, driver=None):
         self.wait = wait
         if init_browser:
             self.driver = self._initialize_browser()
         else:
-            self.driver = input("\nPlease enter the driver object name: ")
+            self.driver = driver
 
     def _initialize_browser(self):
         options = Options()
