@@ -10,7 +10,7 @@ Because Tomnom's Meg can't presently collect sources with any JavaScript updates
 ```python
 from meg import Meg
 
-browser = Meg("https://example.com/")
-dom_source = browser.load_source(output="source.html", wait=5)
+browser = Meg("https://example.com/", wait=5)
+dom_source = browser.load_source(output="source.html")
 print(dom_source)
 ```
