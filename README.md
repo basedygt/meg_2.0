@@ -43,6 +43,6 @@ ff.find_element_by_id('login_button').click()
 ff.implicitly_wait(5)
 
 # run the instance with custom browser
-browser = Meg(wait=5, init_browser=False, driver="ff")
+browser = Meg(wait=5, init_browser=False, custom_driver="ff")
 browser.fetch_sources("urls.txt", output_dir="output")
 ```
